@@ -1,7 +1,7 @@
 === My Category Excluder ===
 Contributors: JohnnyPea
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FUT8H7SGMYE5E
-Tags: registration,login,user
+Tags: category,categories,exclude,excluder,user
 Requires at least: 2.8
 Tested up to: 3.0.1
 Stable tag: 0.1
