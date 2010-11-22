@@ -3,7 +3,7 @@
 Plugin Name: My Category Excluder
 Plugin URI: http://www.techforum.sk/
 Description: User can exclude particular category or categories
-Version: 0.1
+Version: 0.2
 Author: Ján Bočínec
 Author URI: http://johnnypea.wp.sk/
 License: GPL2
@@ -18,18 +18,20 @@ function mce_cat_query( $wp_query )
 	  	$on_archives = get_option('on_archives');
 	  	$on_feeds = get_option('on_feeds');
 
-		$exc_cats_list = '';
-		$exc_cats_array = get_user_meta( $user_ID, 'exc_cats_list', TRUE); 	
-		foreach ( $exc_cats_array as $exc_cat_id ) {
-			$exc_cats_list = "-$exc_cat_id,";
+		$exc_cats_array = get_user_meta( $user_ID, 'exc_cats_list', TRUE);
+		if ( $exc_cats_array ) {
+			foreach ( $exc_cats_array as $exc_cat_id ) {
+				$exc_cats_list = "-$exc_cat_id,";
+			}
 		}
-
 	
-	  	if( ( $on_home && (is_home() || is_front_page()) ) || 
-	    	( $on_archives && is_archive() && !is_category() ) ||
-	  			( $on_feeds && is_feed() ) ) {
-					$wp_query->set('cat', $exc_cats_list);
-	 	}
+		if ( isset($exc_cats_list) ) {
+		  	if( ( $on_home && (is_home() || is_front_page()) ) || 
+		    	( $on_archives && is_archive() && !is_category() ) ||
+		  			( $on_feeds && is_feed() ) ) {
+						$wp_query->set('cat', $exc_cats_list);
+		 	}
+		}
 	}
 }
 add_action('pre_get_posts', 'mce_cat_query' );
