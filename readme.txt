@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: category,categories,exclude,excluder,user
 Requires at least: 2.8
 Tested up to: 3.0.1
-Stable tag: 0.2
+Stable tag: 0.3
 
 This plugin allows your registered users to exclude some categories from the queries on your site.
 
@@ -43,10 +43,16 @@ initial release
 = 0.2 =
 little fix for when variable was not set
 
+= 0.3 =
+added another conditional check if variable was set
+
 == Upgrade Notice ==
 
 = 0.1 =
 initial release
 
 = 0.2 =
+just update
+
+= 0.3 =
 just update

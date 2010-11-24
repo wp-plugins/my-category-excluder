@@ -3,7 +3,7 @@
 Plugin Name: My Category Excluder
 Plugin URI: http://www.techforum.sk/
 Description: User can exclude particular category or categories
-Version: 0.2
+Version: 0.3
 Author: Ján Bočínec
 Author URI: http://johnnypea.wp.sk/
 License: GPL2
@@ -111,7 +111,7 @@ function mce_extra_profile_fields( $user ) { ?>
             <td><label for="cat_<?php echo $category->cat_ID ?>"><?php echo $category->cat_name; ?></label></td>
  
             <td>
-			<input type="checkbox" name="cat_<?php echo $category->cat_ID ?>" id="cat_<?php echo $category->cat_ID ?>" value="<?php echo $category->cat_ID ?>" <?php if ( in_array($category->cat_ID, $exc_cats_array) ) echo 'checked="checked"'; ?> />                
+			<input type="checkbox" name="cat_<?php echo $category->cat_ID ?>" id="cat_<?php echo $category->cat_ID ?>" value="<?php echo $category->cat_ID ?>" <?php if ( $exc_cats_array && in_array($category->cat_ID, $exc_cats_array) ) echo 'checked="checked"'; ?> />                
             </td>			
 
 			<?php if ( ( $i == 3 || $i % 3 == 0 ) && $i != $cat_count ) { ?>
